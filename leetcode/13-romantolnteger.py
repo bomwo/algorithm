@@ -26,13 +26,29 @@ class Solution:
         result = self.value.get(s[0])
         for value in range(1,len(s)):
             if self.value.get(prefix) < self.value.get(s[value]):
-                result += self.value.get(s[value]) - self.value.get(prefix) - self.value.get(prefix)
+                result += self.value.get(s[value]) - 2 * self.value.get(prefix)
                 prefix = s[value]
             else:
                 result += self.value.get(s[value])
                 prefix = s[value]
 
         return result
+        # 나랑 같은 방식인데 아래것이 더 깔끔한 것 같다.
+        # result = 0
+        # prev_value = 0
+        # for letter in s:
+        #     value = roman_to_int[letter]
+        #     result += value
+        #     if value > prev_value:
+        #         # preceding roman nummber is smaller
+        #         # we need to undo the previous addition
+        #         # and substract the preceding roman char
+        #         # from the current one, i.e. we need to
+        #         # substract twice the previous roman char
+        #         result -= 2 * prev_value
+        #     prev_value = value
+        # return result
+
 
         # 다시 풀기 오늘 배운점 비교 대상을 변수로 나두고 변경하면 좋을듯
 
