@@ -1,0 +1,17 @@
+-- # Write your MySQL query statement below
+-- Input:
+-- Person table:
+-- +----+---------+
+-- | id | email   |
+-- +----+---------+
+-- | 1  | a@b.com |
+-- | 2  | c@d.com |
+-- | 3  | a@b.com |
+-- +----+---------+
+-- Output:
+-- +---------+
+-- | Email   |
+-- +---------+
+-- | a@b.com |
+-- +---------+
+SELECT email FROM Person group by email having count(email) > 1;
